@@ -18,7 +18,7 @@ extern "C" {
 }
 
 #[derive(Serialize, Deserialize)]
-struct GreetArgs<'a> {
+struct ChecksumArgs<'a> {
     path: &'a str,
     sum: &'a str,
 }
@@ -66,7 +66,7 @@ pub fn app() -> Html {
                 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
                 let response = invoke(
                     "checksum",
-                    to_value(&GreetArgs {
+                    to_value(&ChecksumArgs {
                         path: &*path,
                         sum: &*sum,
                     })
